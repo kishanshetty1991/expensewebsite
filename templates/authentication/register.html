@@ -1,5 +1,8 @@
 {% extends 'base_auth.html' %}
+{%load static%}
+
 {% block content %}
+
 
 <div class="row">
 	<div class="col-md-4"> </div>
@@ -13,18 +16,26 @@
 
 				<form action="" method="post">
 					<div class="form-group">
-						<input type="text" id="username" name="username" placeholder="UserName" class="form-control form-control-sm" />
+						<input type="text" id="usernameField" name="username" placeholder="UserName" class="form-control form-control-sm" />
 					</div>
-					<br/>
+						<div class="invalid-feedback invalid-feedback" style="display: none">
+
+						</div>
+						<p class="text-sm text-success usernameSuccessOutput"></p>
+					
 					<div class="form-group">
 						<input type="email" id="emailField" name="email"  placeholder="Email" class="form-control form-control-sm" />
 					</div>
-					<br/>
+						<div class="emailFeedBackArea invalid-feedback" style="display: none">
+
+						</div>
+						<p class="text-sm text-success emailSuccessOutput"></p>
+					
 					<div class="form-group">
 					<input type="password" id="passwordField" name="password"  placeholder="Password" class="form-control form-control-sm" />
 					</div>
-					<br/>
-					<p align="right"><small class="py-2" align="right">SHOW</small></p>
+					<small class="py-2 showPasswordToggle">SHOW</i>
+</small>
 					<input type="submit" class="btn btn-primary w-100" value="Register"  />
 
 				</form>
@@ -33,6 +44,6 @@
 		</div>
 	</div>
 	<div class="col-md-4"> </div>
-
+<script src="{% static 'js/register.js' %}"></script>
 
 {% endblock content %}

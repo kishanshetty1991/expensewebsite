@@ -11,6 +11,8 @@ environ = "*"
 python-dotenv = "*"
 django-heroku = "*"
 gunicorn = "*"
+validate-email = "*"
+django-fontawesome = "*"
 
 [dev-packages]
 
