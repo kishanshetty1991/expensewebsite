@@ -6,28 +6,22 @@ const emailFeedBackArea = document.querySelector('.emailFeedBackArea');
 const usernameSuccessOutput = document.querySelector('.usernameSuccessOutput');
 const emailSuccessOutput = document.querySelector('.emailSuccessOutput');
 const showPasswordToggle = document.querySelector('.showPasswordToggle');
-
+const submitBtn = document.querySelector(".submit-btn");
 
 const handleToggleInput = (e) => {
 	if(showPasswordToggle.textContent === "SHOW"){
 		showPasswordToggle.textContent = "HIDE";
-		passwordField.setAttribute("type","text");
+		passwordField.setAttribute("type", "text");
 	}
 	else{
 		showPasswordToggle.textContent = "SHOW";
-		passwordField.setAttribute("type","password");
+		passwordField.setAttribute("type", "password");
 
 	}
 }
 
 
 showPasswordToggle.addEventListener("click", handleToggleInput)
-
-
-
-
-
-
 
 emailField.addEventListener("keyup", (e) => {
 
@@ -54,9 +48,13 @@ emailField.addEventListener("keyup", (e) => {
 		console.log("data", data);
 		emailSuccessOutput.style.display = 'none';
 		if(data.email_error){
+			submitBtn.disabled = true;
 			emailField.classList.add("is-invalid");
 			emailFeedBackArea.style.display = "block"; 
 			emailFeedBackArea.innerHTML = `<p>${data.email_error}</p>`
+		}
+		else{
+			submitBtn.removeAttribute("disabled");
 		}
 	});
 	}
@@ -92,6 +90,10 @@ usernameField.addEventListener("keyup", (e) => {
 			usernameField.classList.add("is-invalid");
 			feedBackArea.style.display = "block"; 
 			feedBackArea.innerHTML = `<p>${data.username_error}</p>`
+			submitBtn.disabled = true;
+		}
+		else{
+			submitBtn.removeAttribute("disabled");
 		}
 	});
 	}

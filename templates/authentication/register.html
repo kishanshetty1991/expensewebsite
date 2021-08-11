@@ -13,30 +13,36 @@
 				<div class="card-title py-3">
 				<h4>Register for a free account </h4>
 			</div>
+				<form action="{% url 'register' %}" method="post">
 
-				<form action="" method="post">
+					{% csrf_token %}
+
+					{% include 'partials/_messages.html' %}
+          <!-- Username -->
 					<div class="form-group">
-						<input type="text" id="usernameField" name="username" placeholder="UserName" class="form-control form-control-sm" />
+						<input type="text" id="usernameField" name="username" placeholder="UserName" class="form-control form-control-sm" value="{{fieldValues.username}}"
+            />
 					</div>
-						<div class="invalid-feedback invalid-feedback" style="display: none">
-
-						</div>
-						<p class="text-sm text-success usernameSuccessOutput"></p>
+						<div class="invalid_feedback invalid-feedback" style="display: none"></div>
+						<p class="text-sm text-success usernameSuccessOutput"></p><br>
 					
+          <!-- Email -->
 					<div class="form-group">
-						<input type="email" id="emailField" name="email"  placeholder="Email" class="form-control form-control-sm" />
+						<input type="email" id="emailField" name="email"  placeholder="Email" class="form-control form-control-sm" value="{{fieldValues.email}}" />
 					</div>
-						<div class="emailFeedBackArea invalid-feedback" style="display: none">
-
-						</div>
-						<p class="text-sm text-success emailSuccessOutput"></p>
+						<div class="emailFeedBackArea invalid-feedback" style="display: none"></div>
+						<p class="text-sm text-success emailSuccessOutput"></p><br>
 					
+          <!-- Password -->
 					<div class="form-group">
 					<input type="password" id="passwordField" name="password"  placeholder="Password" class="form-control form-control-sm" />
 					</div>
-					<small class="py-2 showPasswordToggle">SHOW</i>
-</small>
-					<input type="submit" class="btn btn-primary w-100" value="Register"  />
+
+          <!-- Show/Hide Button -->
+					<small class="py-2 showPasswordToggle">SHOW</small>
+
+          <!-- Register Button -->
+					<input type="submit" class="btn btn-primary w-100 submit-btn" value="Register"  />
 
 				</form>
 				</div>
