@@ -2,6 +2,9 @@
 
 
 {% block content %}
+<div class="container" style="margin-left:250px">
+{% include 'partials/_messages.html' %}
+
 <h1>Expenses List</h1>
 
 <ul class="list-group">
@@ -14,5 +17,9 @@
 	<li class="list-group-item">Bought cat</li>
 	<li class="list-group-item">Bought cat</li>
 	
-</ul>
+</ul>	
+
+</div>
+
+
 {% endblock content %}

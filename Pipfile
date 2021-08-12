@@ -13,6 +13,7 @@ django-heroku = "*"
 gunicorn = "*"
 validate-email = "*"
 django-fontawesome = "*"
+six = "*"
 
 [dev-packages]
 
