@@ -96,7 +96,7 @@ def expense_edit(request, id):
         expense.description=description
 
         expense.save()
-        messages.success(request, 'Expense saved successfully')
+        messages.success(request, 'Expense updated successfully')
 
         return redirect('expenses')
         messages.info(request, 'Handling post form')    
