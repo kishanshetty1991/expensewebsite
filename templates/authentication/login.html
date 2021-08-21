@@ -15,6 +15,8 @@
           <h4>Login to your  account</h4>
         </div>
         <form action="{% url 'login' %}" method="post">
+
+          
           {% csrf_token %}
 
           {% include 'partials/_messages.html' %}
@@ -36,13 +38,18 @@
               class="form-control form-control-sm"
               id="passwordField"
             />
+          <small class="showPasswordToggle mt-2">SHOW</small>
           </div>
-          <small class="showPasswordToggle">SHOW</small><br>
-          <input type="submit" value="Login" class="btn btn-block btn-primary submit-btn" />
+          <input type="submit" value="Login" class="btn btn-block btn-primary submit-btn mt-5" />
         </form>
-
+      <div class="container">
+        <span class="text-lead lead"> Don't have an account? </span><a href="{% url 'register' %}">Register</a><br/>
+      <span class="text-lead lead"> Forgot Password? </span><a href="{% url 'request-password' %}">Reset Password</a>
+        
+      </div>
       </div>
 
+      
       </div>
     </div>
   </div>
