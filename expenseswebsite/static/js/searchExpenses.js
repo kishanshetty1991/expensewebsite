@@ -37,6 +37,11 @@ searchField.addEventListener("keyup", (e)=>{
 				  	 	<td>${item.category}</td>
 				  	 	<td>${item.description}</td>
 				  	 	<td>${item.date}</td>
+				  	 	<td>
+					  	 	<a href="/expenses/edit-expense/${item.id}" 
+					  	 	class="btn btn-secondary btn-sm">
+					  	 	Edit
+					  	 	</a></td>
 				  		</tr>`;
 
 		  		});

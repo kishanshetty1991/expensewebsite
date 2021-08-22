@@ -44,7 +44,7 @@
 				<th>Source</th>
 				<th>Description</th>
 				<th>Date</th>
-				<th></th>
+				<th>Action</th>
 
 			</tr>
 		  </thead>	
@@ -76,12 +76,24 @@
 				<th>Source</th>
 				<th>Description</th>
 				<th>Date</th>
-				<th></th>
+				<th>Action</th>
 
 			</tr>
 		  </thead>	
 		  <tbody class="table-body">
-		  	 
+		  	 {% for income in page_obj %}
+		  	 <tr>
+		  	 	<td>{{income.amount}}</td>
+		  	 	<td>{{income.source}}</td>
+		  	 	<td>{{income.description}}</td>
+		  	 	<td>{{income.date}}</td>
+		  	 	<td><a href="{% url 'income-edit' income.id %}" class="btn btn-secondary btn-sm">
+		  	 	Edit</a>
+		  	    </td>
+		  	 	
+
+		  	 </tr>
+		  	{% endfor %}
 		  </tbody>
 		</table>
 		</div>

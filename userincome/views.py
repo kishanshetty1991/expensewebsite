@@ -4,6 +4,7 @@ from .models import Source, UserIncome
 from django.core.paginator import Paginator
 from userpreferences.models import UserPreference
 from django.contrib import messages
+from django.utils.timezone import localtime
 import json
 from django.http import JsonResponse
 from userpreferences.models import UserPreference
@@ -61,6 +62,13 @@ def add_income(request):
         if not description:
             messages.error(request, "Description is required")
             return render(request,'income/add_income.html', context)        
+
+        if source == '':
+            messages.error(request,'IncomeSource cannot be empty')
+            return render(request,'income/add_income.html',context)
+            
+        if date == '':
+            date = localtime()
 
         UserIncome.objects.create(owner=request.user, amount=amount, date=date, source=source, description=description)
         messages.success(request, 'Record saved successfully')
