@@ -14,6 +14,9 @@ gunicorn = "*"
 validate-email = "*"
 django-fontawesome = "*"
 six = "*"
+xlwt = "*"
+weasyprint = "*"
+cairocffi = "*"
 
 [dev-packages]
 
